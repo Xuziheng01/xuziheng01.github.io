@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title>给最爱的朱涛专用的计算器</title>
+    <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css">
+    <script crossorigin="anonymous" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" src="https://lib.baomitu.com/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+    <div class="ui-tab ">
+        <ul class="ui-tab-nav ui-border-b ">
+            <li class="tab1 current"><span>一体化设备</span></li>
+            <li class="tab2"><span>调节池</span></li>
+        </ul>
+        <ul class="ui-tab-content" style="width:100%">
+            <li class="con1">
+                <div class="ui-form ui-border-t">
+                    <form action="">
+                        <div class="ui-form-item ui-border-b">
+                            <label>
+                                长(m)
+                            </label>
+                            <input type="number" placeholder="输入长(m)" class="x" oninput="inputChange1()">
+                        </div>
+                        <div class="ui-form-item ui-border-b">
+                            <label>
+                                宽(m)
+                            </label>
+                            <input type="number" placeholder="输入宽(m)" class="z" oninput="inputChange1()">
+                        </div>
+                        <div class="ui-form-item ui-border-b">
+                            <label>
+                                高(m)
+                            </label>
+                            <input type="number" placeholder="输入高(m)" class="y" oninput="inputChange1()">
+                        </div>
+                        <div class="ui-form-item ui-border-b">
+                            <label>
+                                外壳厚(mm)
+                            </label>
+                            <input type="number" placeholder="输入外壳厚(mm)" class="o" oninput="inputChange1()">
+                        </div>
+                        <div class="ui-form-item ui-border-b" >
+                            <label>
+                                中间厚(mm)
+                            </label>
+                            <input type="number" placeholder="输入中间厚(mm)" class="i" oninput="inputChange1()">
+                        </div>
+                        <!-- <div class="ui-btn-wrap">
+                            <button type="button" class="ui-btn-lg ui-btn-primary btn1">
+                                确定
+                            </button>
+                        </div> -->
+                        <div class="ui-tooltips">
+                            <div class="ui-tooltips-cnt ui-border-b">
+                                <p class="an"></p>
+                            </div>
+                        </div>
+                        <div class="ui-form-item ui-border-b">
+                            <label>
+                                钢板价格
+                            </label>
+                            <input type="number" placeholder="输入钢板价格" class="eve" oninput="inputChange2()">
+                        </div>
+                        <!-- <div class="ui-btn-wrap">
+                            <button type="button" class="ui-btn-lg ui-btn-primary btn2">
+                                确定
+                            </button>
+                        </div> -->
+                        <div class="ui-tooltips">
+                            <div class="ui-tooltips-cnt ui-border-b">
+                                <p class="an1"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>   
+            <li style="display: none;" class="con2">
+                <div class="ui-form ui-border-t">
+                    <form action="">
+                        <div class="ui-form-item ui-border-b">
+                            <label>
+                                长(m)
+                            </label>
+                            <input type="number" placeholder="输入长(m)" class="x" oninput="inputChange3()">
+                        </div>
+                        <div class="ui-form-item ui-border-b">
+                            <label>
+                                宽(m)
+                            </label>
+                            <input type="number" placeholder="输入宽(m)" class="z" oninput="inputChange3()">
+                        </div>
+                        <div class="ui-form-item ui-border-b">
+                            <label>
+                                高(m)
+                            </label>
+                            <input type="number" placeholder="输入高(m)" class="y" oninput="inputChange3()">
+                        </div>
+                        <div class="ui-form-item ui-border-b">
+                            <label>
+                                外壳厚(mm)
+                            </label>
+                            <input type="number" placeholder="输入外壳厚(mm)" class="o" oninput="inputChange3()">
+                        </div>
+                        <!-- <div class="ui-btn-wrap">
+                            <button type="button" class="ui-btn-lg ui-btn-primary btn1">
+                                确定
+                            </button>
+                        </div> -->
+                        <div class="ui-tooltips">
+                            <div class="ui-tooltips-cnt ui-border-b">
+                                <p class="an"></p>
+                            </div>
+                        </div>
+                        <div class="ui-form-item ui-border-b">
+                            <label>
+                                钢板价格
+                            </label>
+                            <input type="number" placeholder="输入钢板价格" class="eve" oninput="inputChange4()">
+                        </div>
+                        <!-- <div class="ui-btn-wrap">
+                            <button type="button" class="ui-btn-lg ui-btn-primary btn2">
+                                确定
+                            </button>
+                        </div> -->
+                        <div class="ui-tooltips">
+                            <div class="ui-tooltips-cnt ui-border-b">
+                                <p class="an1"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+</body>
+<script>
+    function inputChange1 () {
+        var x = Number($(".con1 .x").val()), 
+            z = Number($(".con1 .z").val()), 
+            y = Number($(".con1 .y").val()), 
+            o = Number($(".con1 .o").val()), 
+            i = Number($(".con1 .i").val());
+        if (!x||!z||!y||!o||!i) {
+            // alert('看看空都填了没，需要是数字和小数。')
+            return
+        }
+        var a = x*(z+y)*2*o*7.85/1000+z*y*3*i*7.85/1000+z*y*o*2*7.85/1000;
+        $(".con1 .an").html(a.toFixed(4));
+    }
+    function inputChange2 () {
+        var an = Number($(".con1 .an").text()), eve = Number($(".con1 .eve").val());
+        if (!an) {
+            // alert('先做上面的题')
+            return
+        }
+        if (!eve) {
+            // alert('写下那个价格')
+            return
+        }
+        var val = an * eve;
+        $(".con1 .an1").html(val.toFixed(4));
+    }
+    function inputChange3 () {
+        var x = Number($(".con2 .x").val()), 
+            z = Number($(".con2 .z").val()), 
+            y = Number($(".con2 .y").val()), 
+            o = Number($(".con2 .o").val());
+        if (!x||!z||!y||!o) {
+            // alert('看看空都填了没，需要是数字和小数。')
+            return
+        }
+        var a = x*(z+y)*2*o*7.85/1000+z*y*o*2*7.85/1000;
+        $(".con2 .an").html(a.toFixed(4));
+    }
+    function inputChange4 () {
+        var an = Number($(".con2 .an").text()), eve = Number($(".con2 .eve").val());
+        if (!an) {
+            // alert('先做上面的题')
+            return
+        }
+        if (!eve) {
+            // alert('写下那个价格')
+            return
+        }
+        var val = an * eve;
+        $(".con2 .an1").html(val.toFixed(4));
+    }
+
+
+
+    $(".ui-tab-nav li").click(function () {
+        var _index = $(this).index();
+        $(".ui-tab-content > li").eq(_index).show().siblings().hide();
+        $(this).addClass("current").siblings().removeClass("current");
+    });
+    // 一体化设备
+    $(".con1 .btn1").click(function () {
+        var x = Number($(".con1 .x").val()), 
+            z = Number($(".con1 .z").val()), 
+            y = Number($(".con1 .y").val()), 
+            o = Number($(".con1 .o").val()), 
+            i = Number($(".con1 .i").val());
+        if (!x||!z||!y||!o||!i) {
+            alert('看看空都填了没，需要是数字和小数。')
+            return
+        }
+        var a = x*(z+y)*2*o*7.85/1000+z*y*3*i*7.85/1000+z*y*o*2*7.85/1000;
+        $(".con1 .an").html(a.toFixed(4));
+    })
+    $(".con1 .btn2").click(function () {
+        var an = Number($(".con1 .an").text()), eve = Number($(".con1 .eve").val());
+        if (!an) {
+            alert('先做上面的题')
+            return
+        }
+        if (!eve) {
+            alert('写下那个价格')
+            return
+        }
+        var val = an * eve;
+        $(".con1 .an1").html(val);
+    })
+    // 调节池
+    $(".con2 .btn1").click(function () {
+        var x = Number($(".con2 .x").val()), 
+            z = Number($(".con2 .z").val()), 
+            y = Number($(".con2 .y").val()), 
+            o = Number($(".con2 .o").val());
+        if (!x||!z||!y||!o) {
+            alert('看看空都填了没，需要是数字和小数。')
+            return
+        }
+        var a = x*(z+y)*2*o*7.85/1000+z*y*o*2*7.85/1000;
+        $(".con2 .an").html(a.toFixed(4));
+    })
+    $(".con2 .btn2").click(function () {
+        var an = Number($(".con2 .an").text()), eve = Number($(".con2 .eve").val());
+        if (!an) {
+            alert('先做上面的题')
+            return
+        }
+        if (!eve) {
+            alert('写下那个价格')
+            return
+        }
+        var val = an * eve;
+        $(".con2 .an1").html(val);
+    })
+</script>
+</html>
