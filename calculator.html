@@ -154,6 +154,7 @@
         }
         var a = x*(z+y)*2*o*7.85/1000+z*y*3*i*7.85/1000+z*y*o*2*7.85/1000;
         $(".con1 .an").html(a.toFixed(4));
+        this.inputChange2();
     }
     function inputChange2 () {
         var an = Number($(".con1 .an").text()), eve = Number($(".con1 .eve").val());
@@ -179,6 +180,7 @@
         }
         var a = x*(z+y)*2*o*7.85/1000+z*y*o*2*7.85/1000;
         $(".con2 .an").html(a.toFixed(4));
+        this.inputChange4();
     }
     function inputChange4 () {
         var an = Number($(".con2 .an").text()), eve = Number($(".con2 .eve").val());
