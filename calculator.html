@@ -139,13 +139,47 @@
                 </div>
             </li>
         </ul>
-        
+    </div>
+    <div class="yuan">
+        <input type="number" placeholder="输入想转换的数字" class="cash" oninput="inputCash()">
+        <input placeholder="显示文字" class="cashtext">
+        <button type="button" class="btnCash">复制 </button>
     </div>
     <div style="position: fixed; right: 5px; bottom: 5px;">
         <a href="http://47.93.213.218:5005/zt.html">😊</a>
     </div>
 </body>
 <script>
+    // ----------------- 数字转换 -----------------
+    function inputCash() {
+        var cash = Number($(".cash").val());    
+        if (!cash) {
+            $(".cash").val() == ''
+            return
+        }
+        let text = String(cash).split('').map((item, index) => {
+            return changeCash(item)
+        })
+        let  _text = cashAddText(text);
+        $('.cashtext').val(_text);
+    }
+    function changeCash(e){
+        let str = ['零','壹','贰','叁','肆','伍','陆','柒','捌','玖']
+        return str[Number(e)]
+    }
+    function cashAddText (e) {
+        let a = ['元','拾','佰','仟','万','拾','佰','仟','亿','拾','佰','仟']
+        let b = a.splice(0, e.length).reverse();
+         let c = e.map((item, index) => {
+            return item+b[index]
+        })
+        return c.join('')
+    }
+    $('.btnCash').click(() => {
+        $(".cashtext").select();
+        document.execCommand("Copy");
+    })
+    // ----------------- 计算器 -----------------
     function inputChange1 () {
         var x = Number($(".con1 .x").val()), 
             z = Number($(".con1 .z").val()), 
