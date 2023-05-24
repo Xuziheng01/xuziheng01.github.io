@@ -18,6 +18,7 @@
         <ul class="ui-tab-nav ui-border-b ">
             <li class="tab1 current"><span>一体化设备</span></li>
             <li class="tab2"><span>调节池</span></li>
+            <li class="tab3"><span>圆柱体体积</span></li>
         </ul>
         <ul class="ui-tab-content" style="width:100%">
             <li class="con1">
@@ -138,6 +139,29 @@
                     </form>
                 </div>
             </li>
+            <li style="display: none;" class="con3">
+                <div class="ui-form ui-border-t">
+                    <form action="">
+                        <div class="ui-form-item ui-border-b">
+                            <label>
+                                底圆半径(m)
+                            </label>
+                            <input type="number" placeholder="输入底圆半径(m)" class="r" oninput="inputChange('cylinder')">
+                        </div>
+                        <div class="ui-form-item ui-border-b">
+                            <label>
+                                圆柱体高(m)
+                            </label>
+                            <input type="number" placeholder="输入圆柱体高(m)" class="h" oninput="inputChange('cylinder')">
+                        </div>
+                        <div class="ui-tooltips">
+                            <div class="ui-tooltips-cnt ui-border-b">
+                                <p class="an"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li>
         </ul>
     </div>
     <div class="yuan">
@@ -183,6 +207,17 @@
         document.execCommand("Copy");
     })
     // ----------------- 计算器 -----------------
+    function inputChange (type) {
+        if (type === 'cylinder') {
+            var r = Number($(".con3 .r").val()),
+                h = Number($(".con3 .h").val());
+            if (!r||!h) {
+                return
+            }
+            var val = Math.PI*r*r*h
+            $(".con3 .an").html(val.toFixed(4));
+        }
+    }
     function inputChange1 () {
         var x = Number($(".con1 .x").val()), 
             z = Number($(".con1 .z").val()), 
